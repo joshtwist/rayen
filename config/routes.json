@@ -1,0 +1,71 @@
+{
+  "$schema": "https://cdn.zuplo.com/schemas/routes.json",
+  "routes": [
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/budgets",
+      "summary": "Get Budget",
+      "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+      "version": "none",
+      "corsPolicy": "anything-goes",
+      "handler": {
+        "export": "getAll",
+        "module": "$import(./modules/budgets)",
+        "options": {}
+      },
+      "policies": {
+        "inbound": [
+          "open-id-jwt-auth-inbound"
+        ]
+      },
+      "operationId": "6bf9fcda-fb3a-4fea-bb99-010e20489859"
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "path": "/budgets",
+      "summary": "Creates a new budget",
+      "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+      "version": "none",
+      "corsPolicy": "none",
+      "handler": {
+        "export": "createBudget",
+        "module": "$import(./modules/budgets)",
+        "options": {}
+      },
+      "policies": {
+        "inbound": [
+          "open-id-jwt-auth-inbound"
+        ]
+      },
+      "operationId": "f42ed43b-a1a1-4af3-91f5-82eadd49e27a"
+    }
+  ],
+  "versions": [
+    {
+      "name": "none",
+      "pathPrefix": ""
+    },
+    {
+      "name": "v1",
+      "pathPrefix": "/v1"
+    }
+  ],
+  "policies": [
+    {
+      "handler": {
+        "export": "OpenIdJwtInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "allowUnauthenticatedRequests": false,
+          "secret": "password"
+        }
+      },
+      "name": "open-id-jwt-auth-inbound",
+      "policyType": "open-id-jwt-auth-inbound"
+    }
+  ]
+}

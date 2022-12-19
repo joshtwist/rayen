@@ -1,0 +1,10 @@
+{
+  "description": "A simple POST to the initial route",
+  "pathname": "/budgets",
+  "method": "POST",
+  "headers": {
+    "content-type": "application/json",
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWItcmF5ZW4tMTIzMyIsIm5hbWUiOiJSYXllbiBOYXNyYW91aSIsImlhdCI6MTUxNjIzOTAyMn0.L1muA_P5Z9ySB1RovM0Y7QhsP1rsNshup6cbRhL8sI0"
+  },
+  "body": "{\n  \"amount\" : 134\n}"
+}
